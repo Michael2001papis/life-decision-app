@@ -9,9 +9,10 @@ export const generateResult = (score, categoryLabel) => {
     explanation: decision.reflection,
     direction: decision.conclusion,
     action: decision.actionStep,
+    actionPlan: decision.actionPlan,
     pattern: decision.stateName,
     summary: decision.reflection,
     recommendation: decision.conclusion,
-    nextSteps: [decision.actionStep]
+    nextSteps: decision.actionPlan.map((step) => step.description)
   };
 };

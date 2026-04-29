@@ -15,6 +15,10 @@ const ResultPanel = () => {
     );
   }
 
+  const actionPlan = result.actionPlan?.length
+    ? result.actionPlan
+    : [{ title: "התחל בצעד אחד", description: result.action || result.nextSteps?.[0] }];
+
   return (
     <div className="screen">
       <p className="eyebrow">המצב שלך כרגע</p>
@@ -38,7 +42,18 @@ const ResultPanel = () => {
           התחל פעולה
         </button>
 
-        <p className="single-action">{result.action || result.nextSteps?.[0]}</p>
+        <div className="action-plan">
+          <h3>מה לעשות עכשיו</h3>
+          {actionPlan.map((step, index) => (
+            <article className="action-step" key={`${step.title}-${index}`}>
+              <span>{index + 1}</span>
+              <div>
+                <strong>{step.title}</strong>
+                <p>{step.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <div className="actions">
