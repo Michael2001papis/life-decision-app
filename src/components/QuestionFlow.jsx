@@ -94,9 +94,7 @@ const QuestionFlow = () => {
 
   return (
     <div className="screen" key={activeQuestion.id}>
-      <p className="eyebrow">
-        שאלה {questionIndex + 1} מתוך {activeQuestions.length}
-      </p>
+      <p className="eyebrow">נמשיך צעד קטן</p>
       <h2>{activeQuestion.question}</h2>
       <div className="options-list">
         {activeQuestion.options.map((option) => (

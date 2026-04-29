@@ -66,11 +66,9 @@ const ActionRefinement = () => {
 
   return (
     <div className="screen" key={activeQuestion.id}>
-      <p className="eyebrow">
-        דיוק הצעד הבא {questionIndex + 1} מתוך {refinementQuestions.length}
-      </p>
+      <p className="eyebrow">נדייק את הצעד הבא</p>
       <h2>{activeQuestion.question}</h2>
-      <p className="lead">ענה בקצרה לפי מה שהכי נכון לך עכשיו. זה יעזור לבנות תוכנית פעולה מדויקת יותר.</p>
+      <p className="lead">בחר את מה שהכי מתאים כרגע, כדי שהצעד הבא יהיה פשוט וברור יותר.</p>
 
       <div className="options-list">
         {activeQuestion.options.map((option) => (

@@ -59,11 +59,9 @@ const EmotionalCheck = () => {
 
   return (
     <div className="screen" key={activeQuestion.id}>
-      <p className="eyebrow">
-        התחלה רגועה {questionIndex + 1} מתוך {emotionalQuestions.length}
-      </p>
+      <p className="eyebrow">ניקח את זה בעדינות</p>
       <h2>{activeQuestion.question}</h2>
-      <p className="lead">ענה לפי מה שהכי קרוב למה שאתה מרגיש עכשיו. אין כאן תשובה נכונה או לא נכונה.</p>
+      <p className="lead">בחר את מה שהכי קרוב למה שקורה אצלך עכשיו. אין כאן נכון או לא נכון.</p>
 
       <div className="options-list">
         {activeQuestion.options.map((option) => (

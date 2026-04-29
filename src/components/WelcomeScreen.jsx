@@ -63,10 +63,10 @@ const WelcomeScreen = () => {
 
   return (
     <div className="screen">
-      <p className="eyebrow">Life Decision App</p>
+      <p className="eyebrow">רגע לעצמך</p>
       <h1>בוא נעשה קצת סדר.</h1>
       <p className="lead">
-        אפשר להתחיל בעדינות: שם, כמה שאלות פשוטות, ואז צעד קטן וברור.
+        אפשר להתחיל בעדינות, בלי לחץ ובלי להרגיש שבוחנים אותך.
       </p>
 
       <form className="form" onSubmit={handleSubmit}>

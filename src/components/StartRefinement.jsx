@@ -66,11 +66,9 @@ const StartRefinement = () => {
 
   return (
     <div className="screen" key={activeQuestion.id}>
-      <p className="eyebrow">
-        דיוק קטן {questionIndex + 1} מתוך {emotionalRefinementQuestions.length}
-      </p>
+      <p className="eyebrow">עוד רגע קטן של דיוק</p>
       <h2>{activeQuestion.question}</h2>
-      <p className="lead">רק שתי שאלות קצרות כדי לדייק את ההתחלה בלי להעמיס.</p>
+      <p className="lead">נבחר יחד משהו פשוט יותר להתחלה, בלי להעמיס.</p>
 
       <div className="options-list">
         {activeQuestion.options.map((option) => (
