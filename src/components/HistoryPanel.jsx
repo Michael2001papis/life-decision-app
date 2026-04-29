@@ -15,6 +15,15 @@ const HistoryPanel = () => {
     setHistory([]);
   };
 
+  const getHistoryText = (item) =>
+    item.actionPlan?.mainStep ||
+    item.actionPlan?.todayTask ||
+    item.result?.recommendation ||
+    item.result?.direction ||
+    item.result?.reflection ||
+    item.result?.state ||
+    "נשמרה תוצאה קודמת.";
+
   return (
     <div className="screen">
       <p className="eyebrow">היסטוריה</p>
@@ -30,7 +39,7 @@ const HistoryPanel = () => {
                 <strong>{item.category}</strong>
                 <span>{new Date(item.createdAt).toLocaleDateString("he-IL")}</span>
               </div>
-              <p>{item.result.recommendation}</p>
+              <p>{getHistoryText(item)}</p>
             </article>
           ))}
         </div>

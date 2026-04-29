@@ -11,6 +11,10 @@ export const AppProvider = ({ children }) => {
   const [currentDecisionId, setCurrentDecisionId] = useState(null);
   const [refinementAnswers, setRefinementAnswers] = useState({});
   const [personalActionPlan, setPersonalActionPlan] = useState(null);
+  const [emotionalAnswers, setEmotionalAnswers] = useState({});
+  const [emotionalResult, setEmotionalResult] = useState(null);
+  const [emotionalRefinementAnswers, setEmotionalRefinementAnswers] = useState({});
+  const [startPlan, setStartPlan] = useState(null);
 
   const resetFlow = () => {
     setStage("welcome");
@@ -21,6 +25,10 @@ export const AppProvider = ({ children }) => {
     setCurrentDecisionId(null);
     setRefinementAnswers({});
     setPersonalActionPlan(null);
+    setEmotionalAnswers({});
+    setEmotionalResult(null);
+    setEmotionalRefinementAnswers({});
+    setStartPlan(null);
   };
 
   return (
@@ -42,6 +50,14 @@ export const AppProvider = ({ children }) => {
         setRefinementAnswers,
         personalActionPlan,
         setPersonalActionPlan,
+        emotionalAnswers,
+        setEmotionalAnswers,
+        emotionalResult,
+        setEmotionalResult,
+        emotionalRefinementAnswers,
+        setEmotionalRefinementAnswers,
+        startPlan,
+        setStartPlan,
         resetFlow
       }}
     >

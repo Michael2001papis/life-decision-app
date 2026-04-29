@@ -66,7 +66,7 @@ const ResultPanel = () => {
           type="button"
           onClick={() => setStage("actionRefinement")}
         >
-          דייק לי את הצעד הבא
+          תכוון אותי עוד קצת
         </button>
       </section>
 
