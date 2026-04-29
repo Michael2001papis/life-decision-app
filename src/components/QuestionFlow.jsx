@@ -75,7 +75,7 @@ const QuestionFlow = () => {
   };
 
   return (
-    <div className="screen">
+    <div className="screen" key={activeQuestion.id}>
       <p className="eyebrow">
         שאלה {questionIndex + 1} מתוך {activeQuestions.length}
       </p>
@@ -83,7 +83,9 @@ const QuestionFlow = () => {
       <div className="options-list">
         {activeQuestion.options.map((option) => (
           <button
-            className="option-button"
+            className={`option-button ${
+              answers[activeQuestion.id] === option.text ? "selected" : ""
+            }`}
             type="button"
             key={option.text}
             onClick={() => answerQuestion(option.text)}
