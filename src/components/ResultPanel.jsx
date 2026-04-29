@@ -1,42 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
-const scoreLabels = {
-  energyLevel: "אנרגיה",
-  mentalLoad: "עומס",
-  riskTolerance: "סיכון",
-  clarity: "בהירות",
-  urgency: "דחיפות",
-  stabilityNeed: "יציבות"
-};
-
-const resultSections = [
-  { key: "reflection", title: "שיקוף מצב" },
-  { key: "internalAnalysis", title: "ניתוח פנימי" },
-  { key: "conclusion", title: "מסקנה ברורה" },
-  { key: "actionStep", title: "צעד פעולה" }
-];
-
-const getSectionContent = (result, key) => {
-  if (result[key]) {
-    return result[key];
-  }
-
-  if (key === "reflection") {
-    return result.summary;
-  }
-
-  if (key === "conclusion") {
-    return result.recommendation;
-  }
-
-  if (key === "actionStep") {
-    return result.nextSteps?.[0];
-  }
-
-  return "";
-};
-
 const ResultPanel = () => {
   const { result, setStage, resetFlow } = useContext(AppContext);
 
@@ -53,30 +17,29 @@ const ResultPanel = () => {
 
   return (
     <div className="screen">
-      <p className="eyebrow">המסקנה שלך</p>
-      <h2>{result.pattern || "כיוון פעולה ברור"}</h2>
-      <p className="lead">{result.recommendation}</p>
+      <p className="eyebrow">המצב שלך כרגע</p>
 
-      <div className="result-story">
-        {resultSections.map((section, index) => (
-          <article className="result-section" key={section.key}>
-            <span>{index + 1}</span>
-            <div>
-              <h3>{section.title}</h3>
-              <p>{getSectionContent(result, section.key)}</p>
-            </div>
-          </article>
-        ))}
-      </div>
+      <section className="result-card">
+        <h2>{result.state || result.pattern || "כיוון ברור"}</h2>
+        <p className="result-category">{result.category || "תוצאה אישית"}</p>
 
-      <div className="score-grid">
-        {Object.entries(result.score).map(([key, value]) => (
-          <div className="score-item" key={key}>
-            <span>{scoreLabels[key] || key}</span>
-            <strong>{value}</strong>
-          </div>
-        ))}
-      </div>
+        <div className="soft-divider" />
+
+        <p className="result-explanation">{result.explanation || result.summary}</p>
+
+        <div className="soft-divider" />
+
+        <div className="direction-box">
+          <span>מה נכון לעשות עכשיו</span>
+          <p>{result.direction || result.recommendation}</p>
+        </div>
+
+        <button className="action-button" type="button">
+          התחל פעולה
+        </button>
+
+        <p className="single-action">{result.action || result.nextSteps?.[0]}</p>
+      </section>
 
       <div className="actions">
         <button type="button" onClick={resetFlow}>
