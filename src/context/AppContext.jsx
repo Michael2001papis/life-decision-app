@@ -8,6 +8,9 @@ export const AppProvider = ({ children }) => {
   const [category, setCategory] = useState("");
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
+  const [currentDecisionId, setCurrentDecisionId] = useState(null);
+  const [refinementAnswers, setRefinementAnswers] = useState({});
+  const [personalActionPlan, setPersonalActionPlan] = useState(null);
 
   const resetFlow = () => {
     setStage("welcome");
@@ -15,6 +18,9 @@ export const AppProvider = ({ children }) => {
     setCategory("");
     setAnswers({});
     setResult(null);
+    setCurrentDecisionId(null);
+    setRefinementAnswers({});
+    setPersonalActionPlan(null);
   };
 
   return (
@@ -30,6 +36,12 @@ export const AppProvider = ({ children }) => {
         setAnswers,
         result,
         setResult,
+        currentDecisionId,
+        setCurrentDecisionId,
+        refinementAnswers,
+        setRefinementAnswers,
+        personalActionPlan,
+        setPersonalActionPlan,
         resetFlow
       }}
     >

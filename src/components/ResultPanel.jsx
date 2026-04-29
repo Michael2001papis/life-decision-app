@@ -29,21 +29,27 @@ const ResultPanel = () => {
 
         <div className="soft-divider" />
 
-        <p className="result-explanation">{result.explanation || result.summary}</p>
+        <div className="result-block">
+          <span>שיקוף מצב</span>
+          <p>{result.reflection || result.explanation || result.summary}</p>
+        </div>
+
+        <div className="result-block">
+          <span>ניתוח ברור</span>
+          <p>{result.analysis || result.internalAnalysis || result.explanation || result.summary}</p>
+        </div>
 
         <div className="soft-divider" />
 
         <div className="direction-box">
-          <span>מה נכון לעשות עכשיו</span>
-          <p>{result.direction || result.recommendation}</p>
+          <span>מסקנה חד־משמעית</span>
+          <p>{result.conclusion || result.direction || result.recommendation}</p>
         </div>
 
-        <button className="action-button" type="button">
-          התחל פעולה
-        </button>
+        {result.encouragement && <p className="encouragement-box">{result.encouragement}</p>}
 
         <div className="action-plan">
-          <h3>מה לעשות עכשיו</h3>
+          <h3>צעדים ראשונים</h3>
           {actionPlan.map((step, index) => (
             <article className="action-step" key={`${step.title}-${index}`}>
               <span>{index + 1}</span>
@@ -54,6 +60,14 @@ const ResultPanel = () => {
             </article>
           ))}
         </div>
+
+        <button
+          className="action-button"
+          type="button"
+          onClick={() => setStage("actionRefinement")}
+        >
+          דייק לי את הצעד הבא
+        </button>
       </section>
 
       <div className="actions">

@@ -12,6 +12,9 @@ const QuestionFlow = () => {
     answers,
     setAnswers,
     setResult,
+    setCurrentDecisionId,
+    setRefinementAnswers,
+    setPersonalActionPlan,
     setStage
   } = useContext(AppContext);
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -50,17 +53,32 @@ const QuestionFlow = () => {
     const score = calculateScore(nextAnswers, activeQuestions);
     const decisionResult = generateResult(score, categoryLabel);
 
+    const decisionId = crypto.randomUUID();
     const savedDecision = {
-      id: crypto.randomUUID(),
+      id: decisionId,
       createdAt: new Date().toISOString(),
       user,
       category: categoryLabel,
+      initialAnswers: nextAnswers,
+      firstResult: {
+        stateTitle: decisionResult.stateTitle,
+        reflection: decisionResult.reflection,
+        analysis: decisionResult.analysis,
+        conclusion: decisionResult.conclusion,
+        encouragement: decisionResult.encouragement,
+        firstSteps: decisionResult.firstSteps
+      },
+      refinementAnswers: {},
+      actionPlan: null,
       answers: nextAnswers,
       score,
       result: decisionResult
     };
 
     saveDecision(savedDecision);
+    setCurrentDecisionId(decisionId);
+    setRefinementAnswers({});
+    setPersonalActionPlan(null);
     setResult({ ...decisionResult, score });
     setStage("result");
   };
