@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 export const emotionalQuestions = [
   {
     id: "energy",

@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 import { createContext, useState } from "react";
 
 export const AppContext = createContext(null);

@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 import { decisionRules } from "./decisionRules";
 
 export const generateResult = (score, categoryLabel) => {

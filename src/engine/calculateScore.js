@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 const initialScore = {
   energyLevel: 0,
   mentalLoad: 0,

@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./app/App";

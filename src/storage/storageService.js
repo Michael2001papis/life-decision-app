@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 const STORAGE_KEY = "lifeDecisionHistory";
 
 export const saveDecision = (data) => {

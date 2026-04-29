@@ -1,0 +1,23 @@
+---
+description: Project scan and copyright requirements
+alwaysApply: true
+---
+
+# Project Scan And Ownership
+
+- Before changing code, scan the project structure and identify the relevant flow, state, storage, engine, styling, and UI files.
+- Do not change code before understanding which file owns each affected behavior.
+- Keep the app as a React SPA; do not introduce browser page navigation unless explicitly requested.
+- Do not remove existing copyright or ownership comments.
+- Add this code comment to central new files or files with significant changes:
+
+```js
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+```
+
+- Do not show copyright credit in the user-facing UI unless explicitly requested.
+
+זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+Copyright © Michael Papismedov MP

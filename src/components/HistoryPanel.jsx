@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { clearHistory, getHistory } from "../storage/storageService";

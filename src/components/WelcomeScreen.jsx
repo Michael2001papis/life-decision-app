@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 import { useContext, useMemo, useState } from "react";
 import { AppContext } from "../context/AppContext";
 

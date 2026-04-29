@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 export const detectDecisionPattern = (score) => {
   if (score.mentalLoad >= 6 && score.energyLevel <= 0) {
     return "overload";

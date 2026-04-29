@@ -1,3 +1,7 @@
+/*
+  זכויות יוצרים שמורות למיכאל פפיסמדוב MP
+*/
+
 export const categories = [
   { id: "work", label: "עבודה" },
   { id: "relationship", label: "זוגיות" },
