@@ -2,11 +2,39 @@ import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
 const scoreLabels = {
-  stability: "יציבות",
-  money: "כסף",
-  stress: "לחץ",
+  energyLevel: "אנרגיה",
+  mentalLoad: "עומס",
+  riskTolerance: "סיכון",
+  clarity: "בהירות",
   urgency: "דחיפות",
-  risk: "סיכון"
+  stabilityNeed: "יציבות"
+};
+
+const resultSections = [
+  { key: "reflection", title: "שיקוף מצב" },
+  { key: "internalAnalysis", title: "ניתוח פנימי" },
+  { key: "conclusion", title: "מסקנה ברורה" },
+  { key: "actionStep", title: "צעד פעולה" }
+];
+
+const getSectionContent = (result, key) => {
+  if (result[key]) {
+    return result[key];
+  }
+
+  if (key === "reflection") {
+    return result.summary;
+  }
+
+  if (key === "conclusion") {
+    return result.recommendation;
+  }
+
+  if (key === "actionStep") {
+    return result.nextSteps?.[0];
+  }
+
+  return "";
 };
 
 const ResultPanel = () => {
@@ -26,25 +54,28 @@ const ResultPanel = () => {
   return (
     <div className="screen">
       <p className="eyebrow">המסקנה שלך</p>
-      <h2>{result.recommendation}</h2>
-      <p className="lead">{result.summary}</p>
+      <h2>{result.pattern || "כיוון פעולה ברור"}</h2>
+      <p className="lead">{result.recommendation}</p>
+
+      <div className="result-story">
+        {resultSections.map((section, index) => (
+          <article className="result-section" key={section.key}>
+            <span>{index + 1}</span>
+            <div>
+              <h3>{section.title}</h3>
+              <p>{getSectionContent(result, section.key)}</p>
+            </div>
+          </article>
+        ))}
+      </div>
 
       <div className="score-grid">
         {Object.entries(result.score).map(([key, value]) => (
           <div className="score-item" key={key}>
-            <span>{scoreLabels[key]}</span>
+            <span>{scoreLabels[key] || key}</span>
             <strong>{value}</strong>
           </div>
         ))}
-      </div>
-
-      <div className="next-steps">
-        <h3>צעדים הבאים</h3>
-        <ul>
-          {result.nextSteps.map((step) => (
-            <li key={step}>{step}</li>
-          ))}
-        </ul>
       </div>
 
       <div className="actions">
